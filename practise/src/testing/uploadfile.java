@@ -3,11 +3,13 @@ package testing;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -30,15 +32,25 @@ public class uploadfile {
 		driver.findElement(By.xpath("//p[contains(text(),'Organization')]")).click();
 		Thread.sleep(2000);
 		
-		driver.findElement(By.xpath("//a[contains(text(),'Edit')]")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Add')]")).click();
 		Thread.sleep(2000);
-		WebDriverWait wait=new  WebDriverWait(driver,30);
-		WebElement file =driver.findElement(By.xpath("//input[@id='file']"));
-	wait.until(ExpectedConditions.elementToBeSelected(file));
-		Actions ac=new Actions(driver);
-		ac.moveToElement(file).build().perform();
+		
+		//JavascriptExecutor jse = ((JavascriptExecutor)driver);
+		//jse.executeScript("window.scrollBy(0,250)", "");
+		
+		//EventFiringWebDriver evnt=new EventFiringWebDriver(driver);
+	
+		//evnt.executeScript("window.quarySelector(//*[@id=\"upadteModal\"]),scrollDown-250");
+		
+		driver.findElement(By.xpath("//input[@placeholder='Registration Number']")).sendKeys("463636435547");
+   driver.findElement(By.xpath("//input[@placeholder='Designation']")).sendKeys("Tester");
+   driver.findElement(By.xpath("//input[@placeholder='Company FEIN No']")).sendKeys("2112131");
+   driver.findElement(By.xpath("//input[@placeholder='Naics Code']")).sendKeys("9867896");
+   driver.findElement(By.xpath("//input[@placeholder='State Of Incorporation']")).sendKeys("It");
+    driver.findElement(By.xpath("//input[@id='file']")).click();
+    //browse.sendKeys("D:\\SoftwareTestingMaterial\\UploadFile.txt");
 		Thread.sleep(2000);
-		 Runtime.getRuntime().exec("E:\\Resume-Copy.exe");
+		 Runtime.getRuntime().exec("C:\\Users\\Rainiersoft101\\Desktop\\file2.exe");
 		
 	}
 

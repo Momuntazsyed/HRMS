@@ -153,7 +153,7 @@ public void startTest() throws Throwable
 		
 		File srcfile =((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 	FileUtils.copyFile(srcfile, new File("./SreenShot/" +Description +"_"+FunctionLibrary.generateDate() +".jpg"));
-		
+		driver.close();
 		break;
 	}
 	catch(AssertionError a)
